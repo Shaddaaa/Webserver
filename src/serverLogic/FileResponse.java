@@ -3,9 +3,7 @@ package serverLogic;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLConnection;
 
@@ -22,8 +20,7 @@ public class FileResponse {
 		ByteArrayOutputStream result = new ByteArrayOutputStream();
 		BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(pathToFile));
 		byte[] buffer = new byte[1024];
-		int i;
-		while ((i = inputStream.read(buffer))>=0) {
+		while ((inputStream.read(buffer))>=0) {
 			result.write(buffer);
 		}
 		inputStream.close();
